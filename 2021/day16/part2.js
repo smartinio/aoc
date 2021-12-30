@@ -7,6 +7,24 @@ const input = require('./input.txt')
 
 const MINIMUM_PACKAGE_LENGTH = 10
 
+const resolve = (packet) => {
+  if (packet.type === 'operator') {
+    return operationsByTypeId[packet.typeId](packet.subPackets)
+  } else {
+    return packet.value
+  }
+}
+
+const operationsByTypeId = {
+  0: (packets) => packets.map(resolve).reduce((acc, n) => acc + n, 0),
+  1: (packets) => packets.map(resolve).reduce((acc, n) => acc * n, 1),
+  2: (packets) => Math.min(...packets.map(resolve)),
+  3: (packets) => Math.max(...packets.map(resolve)),
+  5: ([a, b]) => (resolve(a) > resolve(b) ? 1 : 0),
+  6: ([a, b]) => (resolve(a) < resolve(b) ? 1 : 0),
+  7: ([a, b]) => (resolve(a) === resolve(b) ? 1 : 0),
+}
+
 function parseNBits(n) {
   const binary = input.splice(0, n).join('')
   return parseInt(binary, 2)
@@ -27,7 +45,7 @@ function createLiteral() {
   }
 }
 
-function createOperator() {
+function createOperator(typeId) {
   const lengthTypeId = parseNBits(1)
   let subPackets = []
 
@@ -37,7 +55,7 @@ function createOperator() {
     while (
       current - input.length <
       subPacketBitLength - MINIMUM_PACKAGE_LENGTH
-      ) {
+    ) {
       parseNextPacket(subPackets)
     }
   } else {
@@ -49,23 +67,20 @@ function createOperator() {
 
   return {
     type: 'operator',
-    value: subPackets,
+    typeId,
+    subPackets,
   }
 }
 
-let versionSum = 0
-
 function parseNextPacket(packets) {
-  const version = parseNBits(3)
+  input.splice(0, 3) // trim away package version
   const typeId = parseNBits(3)
-
-  versionSum += version
-
+  
   if (typeId === 4) {
     const literal = createLiteral()
     packets.push(literal)
   } else {
-    const operator = createOperator()
+    const operator = createOperator(typeId)
     packets.push(operator)
   }
 }
@@ -76,4 +91,4 @@ while (input.length > MINIMUM_PACKAGE_LENGTH) {
   parseNextPacket(outerPackets)
 }
 
-console.log('output', versionSum)
+console.log('output', resolve(outerPackets[0]))

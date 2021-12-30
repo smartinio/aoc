@@ -7,7 +7,7 @@
   "scripts": {
     "make": "node scripts/make.js",
     "solve": "node scripts/solve.js",
-    "solve:watch": "nodemon scripts/solve.js"
+    "solve:watch": "nodemon -e js,txt scripts/solve.js"
   },
   "dependencies": {
     "fs-extra": "^10.0.0",

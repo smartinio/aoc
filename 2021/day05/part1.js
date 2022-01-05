@@ -24,7 +24,6 @@ const increment = (x, y) => {
   canvas.data[x] = canvas.data[x] || []
   canvas.data[x][y] = canvas.data[x][y] || 0
   canvas.data[x][y] += 1
-  // console.log('incrementing', { x, y })
 }
 
 segments.filter(isNonDiagonal).forEach(([a, b]) => {
@@ -34,7 +33,7 @@ segments.filter(isNonDiagonal).forEach(([a, b]) => {
     for (let y = A.y; y <= B.y; y++) {
       increment(x, y)
     }
-  } else if (a.x === b.x) {
+  } else if (a.y === b.y) {
     const y = a.y
     const [A, B] = [a, b].sort((c, d) => c.x - d.x)
     for (let x = A.x; x <= B.x; x++) {
@@ -55,5 +54,4 @@ for (let i = 0; i < canvas.data.length; i++) {
   }
 }
 
-console.log(canvas.data)
 console.log({ count })

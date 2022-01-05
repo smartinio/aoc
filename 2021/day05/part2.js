@@ -34,12 +34,6 @@ segments.forEach(([a, b]) => {
     for (let y = A.y; y <= B.y; y++) {
       increment(x, y)
     }
-  } else if (a.x === b.x) {
-    const y = a.y
-    const [A, B] = [a, b].sort((c, d) => c.x - d.x)
-    for (let x = A.x; x <= B.x; x++) {
-      increment(x, y)
-    }
   } else {
     const [A, B] = [a, b].sort((c, d) => c.x - d.x)
     let y = A.y
@@ -63,5 +57,4 @@ for (let i = 0; i < canvas.data.length; i++) {
   }
 }
 
-console.log(canvas.data)
 console.log({ count })

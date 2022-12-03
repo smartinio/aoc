@@ -1,1 +1,3 @@
-const input = require('./input.example.txt')
+const result = require('./input.example.txt')
+
+console.log({ result })

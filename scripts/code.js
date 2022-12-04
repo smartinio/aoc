@@ -21,5 +21,6 @@ if (watch) {
   }).on('quit', process.exit)
 } else {
   console.log('Executing', year, day, 'part', part)
+  require('./txt.js')
   require(file)
 }

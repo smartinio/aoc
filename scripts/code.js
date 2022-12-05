@@ -12,13 +12,17 @@ const { year, day, part, watch } = args.parse(process.argv)
 const file = require('path').join(__dirname, '..', year, day, part + '.js')
 
 if (watch) {
-  console.log('Watching', year, day, 'part', part)
   nodemon({
     script: file,
     ext: 'js txt',
     spawn: true,
     exec: 'node scripts/txt.js',
-  }).on('quit', process.exit)
+  })
+    .on('start', () => {
+      console.clear()
+      console.log('Watching', year, day, 'part', part)
+    })
+    .on('quit', process.exit)
 } else {
   console.log('Executing', year, day, 'part', part)
   require('./txt.js')

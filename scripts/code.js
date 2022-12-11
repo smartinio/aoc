@@ -16,7 +16,7 @@ if (watch) {
     script: file,
     ext: 'js txt',
     spawn: true,
-    exec: 'node scripts/txt.js',
+    exec: 'node scripts/globals.js',
   })
     .on('start', () => {
       console.clear()
@@ -25,6 +25,6 @@ if (watch) {
     .on('quit', process.exit)
 } else {
   console.log('Executing', year, day, 'part', part)
-  require('./txt.js')
+  require('./globals.js')
   require(file)
 }

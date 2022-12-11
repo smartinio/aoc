@@ -1,6 +1,13 @@
 # Advent of Code
 
-I'll probably never do more than about half.
+My solutions and dev setup for AoC in vanilla NodeJS.
+
+I'll probably never do more than about half of the problems.
+
+## Global patches
+See `scripts/globals.js` for more info
+- `require` is patched to support importing `.txt` files
+- `log` pretty prints data structures in full
 
 ## Setup
 

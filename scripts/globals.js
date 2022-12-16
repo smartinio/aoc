@@ -8,7 +8,11 @@ require.extensions['.txt'] = (module, filename) => {
 
 global.log = (...args) => {
   console.log(
-    ...args.map((arg) => util.inspect(arg, { colors: true, depth: Infinity }))
+    ...args.map((arg) =>
+      typeof arg === 'string'
+        ? arg
+        : util.inspect(arg, { colors: true, depth: Infinity })
+    )
   )
 }
 

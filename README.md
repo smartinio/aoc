@@ -2,7 +2,7 @@
 
 My solutions and dev setup for AoC in vanilla NodeJS.
 
-I'll probably never do more than about half of the problems.
+I'll probably not attempt all problems.
 
 The solutions need to run via [`yarn code`](#run-code) due to the following global patches:
 

@@ -16,6 +16,17 @@ global.log = (...args) => {
   )
 }
 
+global.range = function* range(start, stop, step = 1) {
+  if (stop === undefined) {
+    stop = start
+    start = 0
+  }
+
+  for (let i = start; i < stop; i += step) {
+    yield i
+  }
+}
+
 if (fse.existsSync(process.argv[2])) {
   require(process.argv[2])
 }

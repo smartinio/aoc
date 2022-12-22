@@ -4,10 +4,15 @@ My solutions and dev setup for AoC in vanilla NodeJS.
 
 I'll probably never do more than about half of the problems.
 
+The solutions need to run via [`yarn code`](#run-code) due to the following global patches:
+
 ## Global patches
+
 See [`scripts/globals.js`](https://github.com/smartinio/aoc/blob/main/scripts/globals.js) for more info
+
 - `require` is patched to support importing `.txt` files
 - `log` pretty prints data structures in full
+- `range` works like in [python](https://www.w3schools.com/python/ref_func_range.asp)
 
 ## Setup
 

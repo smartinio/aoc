@@ -3,7 +3,7 @@ const util = require('util')
 
 // Allows node to import the input text files like "require('./input.txt')"
 require.extensions['.txt'] = (module, filename) => {
-  module.exports = fse.readFileSync(filename, 'utf8').trim()
+  module.exports = fse.readFileSync(filename, 'utf8').trimEnd()
 }
 
 global.log = (...args) => {

@@ -5,7 +5,6 @@ function overlaps(rangeA, rangeB) {
 }
 
 const result = require('./input.txt')
-  .trim()
   .split('\n')
   .map((item) => item.split(','))
   .map((pair) => pair.map((range) => range.split('-').map(Number)))

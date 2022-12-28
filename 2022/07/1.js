@@ -1,5 +1,5 @@
 const MAX_SIZE = 100000
-const lines = require('./input.txt').trim().split('\n')
+const lines = require('./input.txt').split('\n')
 
 let result = 0
 

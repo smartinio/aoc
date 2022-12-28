@@ -1,7 +1,7 @@
 const CAPACITY = 70000000
 const NEEDED_SPACE = 30000000
 
-const lines = require('./input.txt').trim().split('\n')
+const lines = require('./input.txt').split('\n')
 const dirs = []
 
 let finalDir = lines.reduce((current, line) => {

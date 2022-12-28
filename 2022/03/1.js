@@ -7,7 +7,6 @@ const priority = Object.fromEntries(
 )
 
 const result = input
-  .trim()
   .split('\n')
   .map((items) => [
     items.slice(0, items.length / 2).split(''),

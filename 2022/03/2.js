@@ -7,7 +7,6 @@ const priority = Object.fromEntries(
 )
 
 const result = input
-  .trim()
   .split('\n')
   .flatMap((_, i, list) => {
     if (i % 3 !== 0) return []

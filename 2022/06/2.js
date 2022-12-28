@@ -1,4 +1,4 @@
-const list = require('./input.txt').trim().split('')
+const list = require('./input.txt').split('')
 
 const N = 14
 

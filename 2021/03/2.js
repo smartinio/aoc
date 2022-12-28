@@ -1,4 +1,4 @@
-const input = require('./input.txt').trim().split('\n')
+const input = require('./input.txt').split('\n')
 
 function findRow(predicate) {
   let remaining = input

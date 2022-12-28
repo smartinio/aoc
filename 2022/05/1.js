@@ -1,5 +1,4 @@
 const [rawCrateData, rawMoves] = require('./input.txt')
-  .trimEnd()
   .split(/\n\n/)
   .map((part) => part.split('\n'))
 

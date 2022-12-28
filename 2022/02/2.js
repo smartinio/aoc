@@ -41,7 +41,6 @@ const getMyMove = (theirMove, outcome) => {
 }
 
 const result = input
-  .trim()
   .split('\n')
   .map((round) => round.split(' ').map((x) => moves[x]))
   .reduce((total, move) => {

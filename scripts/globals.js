@@ -27,6 +27,13 @@ global.range = function* range(start, stop, step = 1) {
   }
 }
 
+global.Array.prototype.peek = function () {
+  for (let item of this) {
+    log(item)
+  }
+  return this
+}
+
 if (fse.existsSync(process.argv[2])) {
   require(process.argv[2])
 }

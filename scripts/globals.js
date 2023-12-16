@@ -34,6 +34,11 @@ global.Array.prototype.peek = function () {
   return this
 }
 
+global.clearConsole = () => {
+  process.stdout.write('\u001b[3J\u001b[2J\u001b[1J')
+  console.clear()
+}
+
 if (fse.existsSync(process.argv[2])) {
   require(process.argv[2])
 }
